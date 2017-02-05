@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "dbg.h"
-
 
 int findWordInBatch(int *argumentFoundChecklist, int index, int isOr, char *word, char *file, char *batchString){
 
@@ -79,7 +77,6 @@ void searchFiles(int batchSize, char *file, char *arguments[], int argumentCount
 int getLongestArgumentIndex(char *arguments[], int argumentCount, int batchSize, int startingIndex){
 
 	int maxArgumentLength = 0;
-
 	int maxArgumentIndex = 0;
 
 	for(int i = startingIndex; i < argumentCount; i++){
@@ -96,8 +93,6 @@ int getLongestArgumentIndex(char *arguments[], int argumentCount, int batchSize,
 	}
 
 	return maxArgumentIndex;
-
-
 }
 
 int main(int argc, char *argv[])
@@ -117,13 +112,11 @@ int main(int argc, char *argv[])
 	}
 
 	int isOrFlag = 0;
-
 	int startingIndexForWordParameters = 2;
 
 	if(strcmp(argv[2],"-o") == 0){
 
 		isOrFlag = 1;
-
 		startingIndexForWordParameters = 3;
 
 	} 
@@ -139,6 +132,5 @@ int main(int argc, char *argv[])
 		searchFiles(batchSize, filePaths[i], argv, argc, longestWordIndex, isOrFlag);
 
 	}
-
 	return(0);
 }
